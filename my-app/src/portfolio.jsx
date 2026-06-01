@@ -507,7 +507,59 @@ export default function Portfolio() {
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 120, background: `linear-gradient(to bottom, transparent, ${dark ? "#0e0e10" : "#fafafa"})` }} />
             </div>
 
-            {/* Accent divider helper */}
+            {/* Timeline — top of page */}
+            {(() => {
+              const stages = ["Proof of Concept", "Multi Model Evaluation", "Own Model Development and Testing", "Manuscript Prep", "Peer Reviews", "Formal Publication"];
+              const current = 1;
+              return (
+                <div className="animate-in" style={{ animationDelay: "0.1s", marginTop: 36, marginBottom: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
+                    <div style={{ width: 3, height: 18, borderRadius: 2, background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
+                    <p style={{ margin: 0, fontSize: 13, fontWeight: 700, letterSpacing: "0.07em", textTransform: "uppercase", color: "var(--text)" }}>Research Progress</p>
+                  </div>
+                  {/* Label row */}
+                  <div style={{ display: "flex", marginBottom: 10 }}>
+                    {stages.map((s, i) => (
+                      <div key={s} style={{ flex: 1, textAlign: "center" }}>
+                        <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+                          color: i === current ? "var(--accent-text)" : i < current ? "var(--muted)" : "transparent" }}>
+                          {i === current ? "In Progress" : i < current ? "Done" : "·"}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Dots + line row */}
+                  <div style={{ position: "relative", display: "flex" }}>
+                    <div style={{ position: "absolute", top: 12, left: "calc(100%/12)", right: "calc(100%/12)", height: 3, background: "var(--border)", borderRadius: 2, zIndex: 0 }} />
+                    <div style={{ position: "absolute", top: 12, left: "calc(100%/12)", width: "calc(100%/6)", height: 3, background: "linear-gradient(to right, var(--accent), #a78bfa)", borderRadius: 2, zIndex: 0, boxShadow: "0 0 8px var(--accent)" }} />
+                    {stages.map((stage, i) => {
+                      const done = i < current;
+                      const isActive = i === current;
+                      return (
+                        <div key={stage} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", zIndex: 1 }}>
+                          <div className={isActive ? "current-stage-dot" : ""} style={{
+                            width: 24, height: 24, borderRadius: "50%",
+                            background: done || isActive ? "var(--accent)" : "var(--card-bg)",
+                            border: `2px solid ${done || isActive ? "var(--accent)" : "var(--border)"}`,
+                            boxShadow: isActive ? "0 0 0 5px rgba(127,119,221,0.25)" : "none",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            transition: "all 0.3s",
+                          }}>
+                            {done && <span style={{ color: "#fff", fontSize: 11, fontWeight: 700 }}>✓</span>}
+                            {isActive && <div style={{ width: 9, height: 9, borderRadius: "50%", background: "#fff" }} />}
+                          </div>
+                          <p style={{ fontSize: 11, textAlign: "center", margin: "10px 3px 0", lineHeight: 1.5,
+                            color: isActive ? "var(--accent-text)" : done ? "var(--text)" : "var(--muted)",
+                            fontWeight: isActive ? 700 : done ? 600 : 400 }}>{stage}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Sections */}
             {[
               {
                 label: "Introduction",
@@ -552,48 +604,6 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Timeline */}
-            <div className="animate-in" style={{ animationDelay: "0.4s", marginTop: 72 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 40 }}>
-                <div style={{ width: 3, height: 18, borderRadius: 2, background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
-                <p style={{ margin: 0, fontSize: 13, fontWeight: 700, letterSpacing: "0.07em", textTransform: "uppercase", color: "var(--text)" }}>Research Progress</p>
-              </div>
-              {(() => {
-                const stages = ["Proof of Concept", "Multi Model Evaluation", "Own Model Development and Testing", "Manuscript Prep", "Peer Reviews", "Formal Publication"];
-                const current = 1;
-                const pct = (current / (stages.length - 1)) * 100;
-                return (
-                  <div style={{ position: "relative", display: "flex", paddingBottom: 8 }}>
-                    <div style={{ position: "absolute", top: 14, left: "calc(100%/12)", right: "calc(100%/12)", height: 3, background: "var(--border)", borderRadius: 2, zIndex: 0 }} />
-                    <div style={{ position: "absolute", top: 14, left: "calc(100%/12)", width: `calc(${pct / (100 * (1 - 1/6))} * (100% - 100%/6))`, height: 3, background: `linear-gradient(to right, var(--accent), #a78bfa)`, borderRadius: 2, zIndex: 0, boxShadow: "0 0 8px var(--accent)" }} />
-                    {stages.map((stage, i) => {
-                      const done = i < current;
-                      const isActive = i === current;
-                      const future = i > current;
-                      return (
-                        <div key={stage} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", zIndex: 1 }}>
-                          <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: isActive ? "var(--accent-text)" : done ? "var(--muted)" : "transparent", marginBottom: 6 }}>
-                            {isActive ? "In Progress" : done ? "Done" : "·"}
-                          </span>
-                          <div className={isActive ? "current-stage-dot" : ""} style={{
-                            width: isActive ? 30 : done ? 26 : 22, height: isActive ? 30 : done ? 26 : 22,
-                            borderRadius: "50%",
-                            background: done ? "var(--accent)" : isActive ? "var(--accent)" : "var(--card-bg)",
-                            border: `2px solid ${done || isActive ? "var(--accent)" : "var(--border)"}`,
-                            display: "flex", alignItems: "center", justifyContent: "center",
-                            transition: "all 0.3s",
-                          }}>
-                            {done && <span style={{ color: "#fff", fontSize: 12, fontWeight: 700 }}>✓</span>}
-                            {isActive && <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#fff" }} />}
-                          </div>
-                          <p style={{ fontSize: 11, textAlign: "center", margin: "10px 3px 0", lineHeight: 1.5, color: isActive ? "var(--accent-text)" : done ? "var(--text)" : "var(--muted)", fontWeight: isActive ? 700 : done ? 600 : 400 }}>{stage}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
-            </div>
           </section>
         )}
 
