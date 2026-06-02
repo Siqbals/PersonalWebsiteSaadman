@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+const BASE = import.meta.env.BASE_URL;
+
 const NAV_LINKS = ["Projects", "Experience", "Education/Skills", "Research", "Contact"];
 
 const PROJECTS = [
@@ -387,7 +389,7 @@ export default function Portfolio() {
               Education
             </h2>
             <div className="animate-in" style={{ animationDelay: "0.14s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/unilogo.png" alt="University logo" style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "unilogo.png"} alt="University logo" style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 6px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>BSc. Computer Science — 4 yr</p>
                 <p style={{ margin: 0, fontSize: 13, color: "var(--secondary)", lineHeight: 1.7 }}>
@@ -396,7 +398,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "0.28s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/unilogo.png" alt="University logo" style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "unilogo.png"} alt="University logo" style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 6px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>BSc. Biology — 3 yr</p>
                 <p style={{ margin: 0, fontSize: 13, color: "var(--secondary)", lineHeight: 1.7 }}>
@@ -408,7 +410,7 @@ export default function Portfolio() {
               Certifications
             </h2>
             <div className="animate-in" style={{ animationDelay: "0.56s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/Networkplus.png" alt="CompTIA Network+" style={{ width: 144, height: 144, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "Networkplus.png"} alt="CompTIA Network+" style={{ width: 144, height: 144, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>CompTIA Network+</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Jan 2026 · Expires Jan 2029</p>
@@ -417,7 +419,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "0.70s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/securityplus.png" alt="CompTIA Security+" style={{ width: 144, height: 144, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "securityplus.png"} alt="CompTIA Security+" style={{ width: 144, height: 144, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>CompTIA Security+</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Jul 2025 · Expires Jul 2028</p>
@@ -426,7 +428,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "0.84s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/ggle.png" alt="Google Cybersecurity Professional" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "ggle.png"} alt="Google Cybersecurity Professional" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Google Cybersecurity Professional</p>
                 <p style={{ margin: "0 0 12px", fontSize: 13, color: "var(--secondary)" }}>Issued Dec 2024</p>
@@ -434,7 +436,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "0.98s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/msn.png" alt="Azure Fundamentals AZ-900" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "msn.png"} alt="Azure Fundamentals AZ-900" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Azure Fundamentals — AZ-900</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Jul 2025</p>
@@ -446,7 +448,7 @@ export default function Portfolio() {
               Training Simulations
             </h2>
             <div className="animate-in" style={{ animationDelay: "1.26s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/tata.png" alt="Tata" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "tata.png"} alt="Tata" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Tata Cybersecurity Analyst Job Simulation</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Aug 2025</p>
@@ -455,7 +457,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "1.40s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/mastercard.png" alt="Mastercard" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "mastercard.png"} alt="Mastercard" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Mastercard Cybersecurity Job Simulation</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Aug 2025</p>
@@ -464,7 +466,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="animate-in" style={{ animationDelay: "1.54s", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", marginBottom: 28, display: "flex", alignItems: "center", gap: 20 }}>
-              <img src="/datacom.png" alt="Datacom" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
+              <img src={BASE + "datacom.png"} alt="Datacom" style={{ width: 115, height: 115, objectFit: "contain", flexShrink: 0 }} />
               <div>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Datacom Cybersecurity Job Simulation</p>
                 <p style={{ margin: "0 0 2px", fontSize: 13, color: "var(--secondary)" }}>Issued Aug 2025</p>
@@ -497,7 +499,7 @@ export default function Portfolio() {
             {/* Banner */}
             <div style={{ position: "relative", width: "100vw", left: "50%", transform: "translateX(-50%)", height: 380, overflow: "hidden" }}>
               <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                src="/Animation of travelling through neurons in human brain.mp4" />
+                src={BASE + "Animation of travelling through neurons in human brain.mp4"} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%)", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "0 clamp(24px, 6vw, 80px)" }}>
                 <span className="animate-in" style={{ animationDelay: "0.05s", fontSize: 12, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginBottom: 14 }}>My Research</span>
                 <h1 className="animate-in" style={{ animationDelay: "0.15s", margin: 0, fontSize: "clamp(36px, 6.5vw, 72px)", fontWeight: 700, color: "#fff", lineHeight: 1.1, letterSpacing: "-0.03em", textShadow: "0 2px 32px rgba(0,0,0,0.6)" }}>
