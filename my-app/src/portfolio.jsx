@@ -303,7 +303,7 @@ export default function Portfolio() {
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
           {NAV_LINKS.map(l => (
             <button key={l} onClick={() => setActive(l)}
-              className={l === "Research" ? "research-nav-btn" : ""}
+              className={l === "Research" ? "research-nav-btn" : "nav-btn"}
               style={{
                 background: active === l ? "var(--accent)" : "transparent",
                 color: active === l ? "#fff" : "var(--muted)",
